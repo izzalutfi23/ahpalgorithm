@@ -40,90 +40,105 @@ include('header.php');
 
 ?>
 
-<section class="content">
-	<h2 class="ui header">Hasil Perhitungan</h2>
-	<table class="ui celled table">
-		<thead>
-		<tr>
-			<th>Overall Composite Height</th>
-			<th>Priority Vector (rata-rata)</th>
-			<?php
-			for ($i=0; $i <= (getJumlahAlternatif()-1); $i++) { 
-				echo "<th>".getAlternatifNama($i)."</th>\n";
-			}
-			?>
-		</tr>
-		</thead>
-		<tbody>
+<div class="right floated thirteen wide computer sixteen wide phone column" id="content">
+	<div class="ui container grid">
+		<div class="row">
+			<div class="fifteen wide computer sixteen wide phone centered column">
+				<h2><i class="table icon"></i> HASIL PERHITUNGAN</h2>
+				<div class="ui divider"></div>
+				<div class="ui grid">
+					<div class="sixteen wide computer sixteen wide phone centered column">
+						<h4></h4>
+						<!-- BEGIN DATATABLE -->
+						<div class="ui stacked segment">
+							<div class="ui blue ribbon icon label">HASIL PERHITUNGAN</div>
+							<br><br>
+							<table class="ui celled table">
+								<thead>
+									<tr>
+										<th>Overall Composite Height</th>
+										<th>Priority Vector (rata-rata)</th>
+										<?php
+										for ($i=0; $i <= (getJumlahAlternatif()-1); $i++) { 
+											echo "<th>".getAlternatifNama($i)."</th>\n";
+										}
+										?>
+									</tr>
+								</thead>
+								<tbody>
 
-		<?php
-			for ($x=0; $x <= (getJumlahKriteria()-1) ; $x++) { 
-				echo "<tr>";
-				echo "<td>".getKriteriaNama($x)."</td>";
-				echo "<td>".round(getKriteriaPV(getKriteriaID($x)),5)."</td>";
+									<?php
+										for ($x=0; $x <= (getJumlahKriteria()-1) ; $x++) { 
+											echo "<tr>";
+											echo "<td>".getKriteriaNama($x)."</td>";
+											echo "<td>".round(getKriteriaPV(getKriteriaID($x)),5)."</td>";
 
-				for ($y=0; $y <= (getJumlahAlternatif()-1); $y++) { 
-					echo "<td>".round(getAlternatifPV(getAlternatifID($y),getKriteriaID($x)),5)."</td>";
-				}
-
-
-				echo "</tr>";
-			}
-		?>
-		</tbody>
-
-		<tfoot>
-		<tr>
-			<th colspan="2">Total</th>
-			<?php
-			for ($i=0; $i <= ($jmlAlternatif-1); $i++) { 
-				echo "<th>".round($nilai[$i],5)."</th>";
-			}
-			?>
-		</tr>
-		</tfoot>
-
-	</table>
+											for ($y=0; $y <= (getJumlahAlternatif()-1); $y++) { 
+												echo "<td>".round(getAlternatifPV(getAlternatifID($y),getKriteriaID($x)),5)."</td>";
+											}
 
 
-	<h2 class="ui header">Perangkingan</h2>
-	<table class="ui celled collapsing table">
-		<thead>
-			<tr>
-				<th>Peringkat</th>
-				<th>Alternatif</th>
-				<th>Nilai</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php
-				$query  = "SELECT id,nama,id_alternatif,nilai FROM alternatif,ranking WHERE alternatif.id = ranking.id_alternatif ORDER BY nilai DESC";
-				$result = mysqli_query($koneksi, $query);
+											echo "</tr>";
+										}
+									?>
+								</tbody>
 
-				$i = 0;
-				while ($row = mysqli_fetch_array($result)) {
-					$i++;
-				?>
-				<tr>
-					<?php if ($i == 1) {
-						echo "<td><div class=\"ui ribbon label\">Pertama</div></td>";
-					} else {
-						echo "<td>".$i."</td>";
-					}
+								<tfoot>
+									<tr>
+										<th colspan="2">Total</th>
+										<?php
+										for ($i=0; $i <= ($jmlAlternatif-1); $i++) { 
+											echo "<th>".round($nilai[$i],5)."</th>";
+										}
+										?>
+									</tr>
+								</tfoot>
 
-					?>
-
-					<td><?php echo $row['nama'] ?></td>
-					<td><?php echo $row['nilai'] ?></td>
-				</tr>
-
-				<?php	
-				}
+							</table>
 
 
-			?>
-		</tbody>
-	</table>
-</section>
+							<h2 class="ui header">Perangkingan</h2>
+							<table class="ui celled collapsing table">
+								<thead>
+									<tr>
+										<th>Peringkat</th>
+										<th>Alternatif</th>
+										<th>Nilai</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php
+										$query  = "SELECT id,nama,id_alternatif,nilai FROM alternatif,ranking WHERE alternatif.id = ranking.id_alternatif ORDER BY nilai DESC";
+										$result = mysqli_query($koneksi, $query);
+
+										$i = 0;
+										while ($row = mysqli_fetch_array($result)) {
+											$i++;
+									?>
+									<tr>
+										<?php if ($i == 1) {
+											echo "<td><div class=\"ui ribbon label\">Pertama</div></td>";
+										} else {
+											echo "<td>".$i."</td>";
+										}
+
+										?>
+
+										<td><?php echo $row['nama'] ?></td>
+										<td><?php echo $row['nilai'] ?></td>
+									</tr>
+
+									<?php	
+										}
+									?>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 <?php include('footer.php'); ?>

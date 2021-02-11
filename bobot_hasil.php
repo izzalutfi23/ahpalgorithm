@@ -148,6 +148,7 @@
 							?>
 							<br>
 						</div>
+						
 						<a href="<?php echo "bobot.php?c=".($jenis + 1)?>">
 							<button class="ui right labeled icon button" style="float: right;">
 								<i class="right arrow icon"></i>
