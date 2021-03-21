@@ -6,8 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
 	<meta name="robots" content="all,follow">
-	<title>SIMPLE-UI Admin Templates</title>
-	<link rel="icon" href="images/logo.png" sizes="32x32">
+	<title>Nadya | Analytic Hirarchy Proccess</title>
+	
 	<!-- inject:css -->
 	<link rel="stylesheet" href="vendors/fomantic-ui/semantic.min.css">
 	<link rel="stylesheet" href="css/main.css">
@@ -40,7 +40,7 @@
 							</div>
 							<div class="ui top pointing dropdown admindropdown link item right">
 								<img class="imgrad" src="images/user.png" alt="">
-								<span class="clear navtext"><strong>Hi, Kabayan</strong></span>
+								<span class="clear navtext"><strong>Hi, Nadya</strong></span>
 								<i class="dropdown icon navtext"></i>
 								<div class="menu">
 									<div class="item">
@@ -65,7 +65,7 @@
 									<strong class="navtext">AHP</strong>
 								</div>
 								<div class="item">
-									<img src="images/logo.png">
+									<img src="images/dinus.jpg">
 								</div>
 							</div>
 						</div>
@@ -83,7 +83,7 @@
 								<table>
 									<tr>
 										<td>
-											<img class="ui mini image" src="images/logo.png">
+											<img class="ui mini image" src="images/dinus.jpg">
 										</td>
 										<td>
 											<span class="clear"><strong>SIMPLE-UI</strong></span>
@@ -113,7 +113,7 @@
 						<div class="ui vertical fluid menu scrollable" id="simplefluid">
 							<div class="clearsidebar"></div>
 							<div class="item">
-								<img src="images/user.png" id="sidebar-image">
+								<img src="images/dinus.jpg" id="sidebar-image">
 							</div>
 							<a class="item" href="index.php"><i class="home icon"></i> Home</a>
 							<a class="item" href="kriteria.php"><i class="table icon"></i> Kriteria</a>
