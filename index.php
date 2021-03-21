@@ -36,7 +36,8 @@ $jml_alter = mysqli_num_rows($alternatif);
 												<h4>Kriteria</h4>
 											</span>
 											<?=$jml_kr?> kriteria
-											<a class="ui tiny label simplelable" href="kriteria.php"><i class="eye icon"></i>
+											<a class="ui tiny label simplelable" href="kriteria.php"><i
+													class="eye icon"></i>
 												Details</a>
 										</div>
 									</div>
@@ -61,7 +62,8 @@ $jml_alter = mysqli_num_rows($alternatif);
 												<h4>Alternatif</h4>
 											</span>
 											<?=$jml_alter?> Alternatif
-											<a class="ui tiny label simplelable" href="alternatif.php"><i class="eye icon"></i>
+											<a class="ui tiny label simplelable" href="alternatif.php"><i
+													class="eye icon"></i>
 												Details</a>
 										</div>
 									</div>
@@ -86,7 +88,8 @@ $jml_alter = mysqli_num_rows($alternatif);
 												<h4>Hasil</h4>
 											</span>
 											<?=$jml_kr?> Hasil
-											<a class="ui tiny label simplelable" href="hasil.php"><i class="eye icon"></i>
+											<a class="ui tiny label simplelable" href="hasil.php"><i
+													class="eye icon"></i>
 												Details</a>
 										</div>
 									</div>
@@ -96,6 +99,28 @@ $jml_alter = mysqli_num_rows($alternatif);
 					</div>
 					<!-- End Downloads -->
 					<!-- END STATISTIC ITEM -->
+
+					<!-- Grafik -->
+					<div class="eight wide computer sixteen wide phone column justifed">
+						<h4>EXAMPLE TITLE</h4>
+						<div class="ui divider"></div>
+						<div class="ui tall stacked segment">
+							<a class="ui blue ribbon label">Chart.js Bar Chart - Multi Axis</a>
+							<canvas id="example-multiaxis"></canvas>
+							<div class="ui divider"></div>
+						</div>
+					</div>
+					<div class="eight wide computer sixteen wide phone column justifed">
+						<h4>EXAMPLE TITLE</h4>
+						<div class="ui divider"></div>
+						<div class="ui tall stacked segment">
+							<a class="ui blue ribbon label">Chart.js Pie Chart - Examples</a>
+							<canvas id="example-pie"></canvas>
+							<div class="ui divider"></div>
+						</div><br>
+					</div>
+					<!-- End Grafik -->
+
 					<section class="content" style="margin-bottom: 20px; margin-top: 20px;">
 						<h2 class="ui header">Analitycal Hierarchy Process (AHP)</h2>
 
@@ -182,3 +207,96 @@ $jml_alter = mysqli_num_rows($alternatif);
 <!-- END CONTENT -->
 
 <?php include('footer.php'); ?>
+
+<script type="text/javascript">
+	var barChartData = {
+		labels: ['Budget', 'Kamera', 'Ukuran Layar', 'Memori', 'Baterai'],
+		datasets: [{
+			label: 'Dataset 1',
+			backgroundColor: [
+				window.chartColors.red,
+				window.chartColors.orange,
+				window.chartColors.yellow,
+				window.chartColors.green,
+				window.chartColors.blue,
+				window.chartColors.purple
+			],
+			data: [
+				4,
+				6,
+				2,
+				8,
+				4,
+				3
+			]
+		}]
+
+	};
+
+
+	var pieChartData = {
+		datasets: [{
+			data: [
+				randomScalingFactor(),
+				randomScalingFactor(),
+				randomScalingFactor(),
+				randomScalingFactor(),
+				randomScalingFactor(),
+			],
+			backgroundColor: [
+				window.chartColors.red,
+				window.chartColors.orange,
+				window.chartColors.yellow,
+				window.chartColors.green,
+				window.chartColors.blue,
+			]
+		}],
+		labels: [
+			'Red',
+			'Orange',
+			'Yellow',
+			'Green',
+			'Blue'
+		]
+	};
+	window.onload = function () {
+		var ctx = document.getElementById('example-multiaxis').getContext('2d');
+		window.myBar = new Chart(ctx, {
+			type: 'bar',
+			data: barChartData,
+			options: {
+				responsive: true,
+				tooltips: {
+					mode: 'index',
+					intersect: true
+				},
+				scales: {
+					yAxes: [{
+						type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+						display: true,
+						position: 'left',
+						id: 'y-axis-1',
+					}, {
+						type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+						display: true,
+						position: 'right',
+						id: 'y-axis-2',
+						gridLines: {
+							drawOnChartArea: false
+						}
+					}],
+				}
+			}
+		});
+
+		var abc = document.getElementById('example-pie').getContext('2d');
+		window.myPieChart = new Chart(abc, {
+			type: 'pie',
+			data: pieChartData,
+			options: {
+				responsive: true
+			}
+		});
+
+	};
+</script>

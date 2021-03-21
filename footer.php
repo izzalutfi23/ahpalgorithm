@@ -12,7 +12,7 @@
 <!-- chartjs:js -->
 <script src="vendors/chart.js/Chart.min.js"></script>
 <script src="vendors/chart.js/Chart.utils.js"></script>
-<script src="vendors/chart.js/Chart.example.js"></script>
+<!-- <script src="vendors/chart.js/Chart.example.js"></script> -->
 <!-- endinject -->
 <!-- datatables:js -->
 <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
