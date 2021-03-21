@@ -105,7 +105,7 @@ $jml_alter = mysqli_num_rows($alternatif);
 						<h4>EXAMPLE TITLE</h4>
 						<div class="ui divider"></div>
 						<div class="ui tall stacked segment">
-							<a class="ui blue ribbon label">Chart.js Bar Chart - Multi Axis</a>
+							<a class="ui blue ribbon label">Chart.js Bar Chart - Kriteria</a>
 							<canvas id="example-multiaxis"></canvas>
 							<div class="ui divider"></div>
 						</div>
@@ -114,7 +114,7 @@ $jml_alter = mysqli_num_rows($alternatif);
 						<h4>EXAMPLE TITLE</h4>
 						<div class="ui divider"></div>
 						<div class="ui tall stacked segment">
-							<a class="ui blue ribbon label">Chart.js Pie Chart - Examples</a>
+							<a class="ui blue ribbon label">Chart.js Pie Chart - Alternatif</a>
 							<canvas id="example-pie"></canvas>
 							<div class="ui divider"></div>
 						</div><br>
@@ -208,11 +208,12 @@ $jml_alter = mysqli_num_rows($alternatif);
 
 <?php include('footer.php'); ?>
 
+
 <script type="text/javascript">
 	var barChartData = {
 		labels: ['Budget', 'Kamera', 'Ukuran Layar', 'Memori', 'Baterai'],
 		datasets: [{
-			label: 'Dataset 1',
+			label: 'Kriteria',
 			backgroundColor: [
 				window.chartColors.red,
 				window.chartColors.orange,
@@ -222,26 +223,24 @@ $jml_alter = mysqli_num_rows($alternatif);
 				window.chartColors.purple
 			],
 			data: [
-				4,
-				6,
 				2,
-				8,
-				4,
-				3
-			]
+				12,
+				6.1,
+				32,
+				10
+			],
 		}]
 
 	};
 
-
 	var pieChartData = {
 		datasets: [{
 			data: [
-				randomScalingFactor(),
-				randomScalingFactor(),
-				randomScalingFactor(),
-				randomScalingFactor(),
-				randomScalingFactor(),
+				1,
+				1,
+				1,
+				1,
+				1,
 			],
 			backgroundColor: [
 				window.chartColors.red,
@@ -252,11 +251,12 @@ $jml_alter = mysqli_num_rows($alternatif);
 			]
 		}],
 		labels: [
-			'Red',
-			'Orange',
-			'Yellow',
-			'Green',
-			'Blue'
+			<?php 
+				$qnamaalter = mysqli_query($koneksi, "SELECT nama FROM alternatif");
+				while($dnmalter = mysqli_fetch_array($qnamaalter)){
+					echo "'".$dnmalter['nama']."', ";
+				}
+			?>
 		]
 	};
 	window.onload = function () {
@@ -276,14 +276,6 @@ $jml_alter = mysqli_num_rows($alternatif);
 						display: true,
 						position: 'left',
 						id: 'y-axis-1',
-					}, {
-						type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-						display: true,
-						position: 'right',
-						id: 'y-axis-2',
-						gridLines: {
-							drawOnChartArea: false
-						}
 					}],
 				}
 			}

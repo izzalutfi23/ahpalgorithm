@@ -66,7 +66,7 @@ var pieChartData = {
 };
 
 
-window.onload = function() {
+window.onload = function () {
 	var ctx = document.getElementById('example-multiaxis').getContext('2d');
 	window.myBar = new Chart(ctx, {
 		type: 'bar',
@@ -96,29 +96,29 @@ window.onload = function() {
 		}
 	});
 
-var abc = document.getElementById('example-pie').getContext('2d');
-window.myPieChart = new Chart(abc, {
-    type: 'pie',
-    data: pieChartData,
-    options: {
-    	responsive: true
-    }
-});
+	var abc = document.getElementById('example-pie').getContext('2d');
+	window.myPieChart = new Chart(abc, {
+		type: 'pie',
+		data: pieChartData,
+		options: {
+			responsive: true
+		}
+	});
 
 };
 
-document.getElementById('rand-multi-axis').addEventListener('click', function() {
-	barChartData.datasets.forEach(function(dataset) {
-		dataset.data = dataset.data.map(function() {
+document.getElementById('rand-multi-axis').addEventListener('click', function () {
+	barChartData.datasets.forEach(function (dataset) {
+		dataset.data = dataset.data.map(function () {
 			return randomScalingFactor();
 		});
 	});
 	window.myBar.update();
 });
 
-document.getElementById('rand-pie').addEventListener('click', function() {
-	pieChartData.datasets.forEach(function(dataset) {
-		dataset.data = dataset.data.map(function() {
+document.getElementById('rand-pie').addEventListener('click', function () {
+	pieChartData.datasets.forEach(function (dataset) {
+		dataset.data = dataset.data.map(function () {
 			return randomScalingFactor();
 		});
 	});
