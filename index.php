@@ -21,7 +21,7 @@ $jml_alter = mysqli_num_rows($alternatif);
 				<div class="ui grid">
 					<!-- BEGIN STATISTIC ITEM -->
 					<!-- Begin Page Views -->
-					<div class="four wide computer sixteen wide phone centered column">
+					<div class="six wide computer sixteen wide phone centered column">
 						<div class="ui raised segment">
 							<div class="content">
 								<div class="ui centered grid">
@@ -46,34 +46,8 @@ $jml_alter = mysqli_num_rows($alternatif);
 						</div>
 					</div>
 					<!-- End Page Views -->
-					<!-- Begin Messages -->
-					<div class="four wide computer sixteen wide phone centered column">
-						<div class="ui raised segment">
-							<div class="content">
-								<div class="ui centered grid">
-									<div class="row">
-										<div class="six wide computer column">
-											<div class="ui small image simpleimage itemcolor2">
-												<i class="table icon simpleicon"></i>
-											</div>
-										</div>
-										<div class="ten wide computer column">
-											<span>
-												<h4>Alternatif</h4>
-											</span>
-											<?=$jml_alter?> Alternatif
-											<a class="ui tiny label simplelable" href="alternatif.php"><i
-													class="eye icon"></i>
-												Details</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- End Messages -->
 					<!-- Begin Downloads -->
-					<div class="four wide computer sixteen wide phone centered column">
+					<div class="six wide computer sixteen wide phone centered column">
 						<div class="ui raised segment">
 							<div class="content">
 								<div class="ui centered grid">
@@ -109,15 +83,6 @@ $jml_alter = mysqli_num_rows($alternatif);
 							<canvas id="example-multiaxis"></canvas>
 							<div class="ui divider"></div>
 						</div>
-					</div>
-					<div class="eight wide computer sixteen wide phone column justifed">
-						<h4>EXAMPLE TITLE</h4>
-						<div class="ui divider"></div>
-						<div class="ui tall stacked segment">
-							<a class="ui blue ribbon label">Chart.js Pie Chart - Alternatif</a>
-							<canvas id="example-pie"></canvas>
-							<div class="ui divider"></div>
-						</div><br>
 					</div>
 					<!-- End Grafik -->
 
